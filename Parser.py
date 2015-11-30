@@ -13,12 +13,12 @@ ignorar = "\s*ENDOFARTICLE.\s*"
 
 START_TIME = time.time() 
 lineWrite = ""
-time.sleep(2)
+
 for root, dirs, files in walk("raw.es"): #Obtiene la lista de los archivos
 	for num, archivo in enumerate(files): #Itera sobre la lista de los archivos
 		direccion = str(root) + "\\" + str(archivo) #Obtenemos la dirección 
-		if not direccion.endswith("_PARSED") and not direccion.endswith("_LIMPIO"): #Ignoramos arhivos que ya se hayan limpiado
-			print("Limpiando: " + direccion)
+		if not "_PARSED" in direccion and direccion.endswith("_LIMPIO"):
+			print("Parsing: " + direccion)
 			with open(direccion, errors='ignore', encoding='utf8') as archivo:
 				with open(direccion + "_PARSED", "w", encoding='utf8') as salida:
 					for line in archivo:
@@ -26,7 +26,7 @@ for root, dirs, files in walk("raw.es"): #Obtiene la lista de los archivos
 							lineWrite = ""
 						elif re.match(fin, line):
 							salida.write(lineWrite.lstrip() + "\n")
-						elif not re.match(ignorar, line) and not line.isspace():
+						elif not re.match(ignorar, line):
 							lineWrite += " " + line.strip()
 
 
