@@ -17,7 +17,7 @@ for root, subdir, files in walk("raw.es\\Parseados"):
 					vocabs.add(word)
 		decoding = dict(list(enumerate(vocabs)))
 		coding = dict([(y,x) for x,y in enumerate(vocabs)])
-		with open(salida +"_INDEXMAP", "w") as index:
+		with open(salida +"_INDEXMAP", "w", encoding="utf8") as index:
 			json.dump(decoding, index)
 		with open(direccion, errors="ignore", encoding="utf8") as archivo:
 			with open(salida + "_INDEXED", "w") as indexed:

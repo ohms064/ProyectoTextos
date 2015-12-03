@@ -16,7 +16,7 @@ lineWrite = ""
 
 for root, dirs, files in walk("raw.es"): #Obtiene la lista de los archivos
 	for num, archivo in enumerate(files): #Itera sobre la lista de los archivos
-		direccion = str(root) + "\\" + str(archivo) #Obtenemos la dirección 
+		direccion = str(root) + "\\Parseados\\" + str(archivo) #Obtenemos la dirección, se asume que existe la carpeta Parseados dentro de raw.es
 		if not "_PARSED" in direccion and direccion.endswith("_LIMPIO"):
 			print("Parsing: " + direccion)
 			with open(direccion, errors='ignore', encoding='utf8') as archivo:
