@@ -19,7 +19,7 @@ def createIndexMap(subdir="raw.es\\Parseados", encode="utf8"):
 						vocabs.add(word)
 	decoding = dict(list(enumerate(vocabs)))
 	coding = dict([(y,x) for x,y in enumerate(vocabs)])
-	with open(root + "\\indexmap.json", "w", encoding=encode) as index:
+	with open(salida + "\\Indexados\\indexmap.json", "w", encoding=encode) as index:
 		json.dump(decoding, index, indent=1)
 	print("¡Se terminó de crear el mapa de índices!")
 	return decoding, coding
@@ -30,6 +30,8 @@ def createIndexFiles(subdir="raw.es\\Parseados", encode="utf8", coding=None):
 		for num, nombre in enumerate(files):
 			print("Codificando: " + nombre)
 			print("\t {} de {}".format(num+1, numFiles))
+			direccion = root + "\\" + nombre
+			salida = root.split("\\")[0] +  "\\Indexados\\" + nombre
 			with open(direccion, errors="ignore", encoding=encode) as archivo:
 				with open(salida + "_INDEXED", "w") as indexed:
 					for line in archivo:
