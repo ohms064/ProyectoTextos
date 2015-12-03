@@ -12,14 +12,13 @@ def createIndexMap(subdir="raw.es\\Parseados", encode="utf8"):
 			print("Obteniendo indices de: " + nombre)
 			print("\t {} de {}".format(num+1, numFiles))
 			direccion = root + "\\" + nombre
-			salida = root.split("\\")[0] +  "\\Indexados\\" + nombre
 			with open(direccion, errors="ignore", encoding=encode) as archivo:
 				for line in archivo:
 					for word in line.strip().split():
 						vocabs.add(word)
 	decoding = dict(list(enumerate(vocabs)))
 	coding = dict([(y,x) for x,y in enumerate(vocabs)])
-	with open(salida + "\\Indexados\\indexmap.json", "w", encoding=encode) as index:
+	with open(root.split("\\")[0] + "\\Indexados\\indexmap.json", "w", encoding=encode) as index:
 		json.dump(decoding, index, indent=1)
 	print("¡Se terminó de crear el mapa de índices!")
 	return decoding, coding
