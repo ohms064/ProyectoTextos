@@ -57,7 +57,7 @@ def indexFolder(data_path, diccPal={}, diccNum={}):
 parent_folder = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 data_path = parent_folder + "\\parsed_files\\"
 diccPal, diccNum = indexFolder(data_path)
-with open('data.txt', 'w') as outfile:
+with open('data.json', 'w') as outfile:
         json.dump(diccPal, outfile)
         outfile.write('\n')
         json.dump(diccNum, outfile)
