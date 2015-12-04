@@ -18,6 +18,7 @@ def createIndexMap(subdir="raw.es\\Parseados", encode="utf8"):
 						vocabs.add(word)
 	decoding = dict(list(enumerate(vocabs)))
 	coding = dict([(y,x) for x,y in enumerate(vocabs)])
+	print("Creando indexmap")
 	with open(root.split("\\")[0] + "\\Indexados\\indexmap.json", "w", encoding=encode) as index:
 		json.dump(decoding, index, indent=1)
 	print("¡Se terminó de crear el mapa de índices!")

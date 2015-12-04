@@ -42,6 +42,7 @@ def parser(subdir="raw.es", encode="utf8"):
 								line = re.sub(espacios, " ", line)
 								if len(line.strip().split()) > 1:
 									lineWrite += " " + line.strip().lower()
+		break #Sólo iterar sobre un nivel
 	print("Se terminó de hacer el parser")
 
 
