@@ -19,6 +19,9 @@ def countDocs(subdir="raw.es\\Parseados", limit=0, encode="utf8"):
 			limit: El límite de archivos que se quieren ver, si es menor o igual 
 			a cero se tomarán todos los archivos de la carpeta..
 			encode: La codificación de los archivos.
+		Salidas:
+			countWord: Número de palabras en todos los archivos.
+			countDocs: Número de lineas(documentos) en todos los archivos.
 	"""
 	print("Obteniendo número de documentos")
 	countWord = 0
